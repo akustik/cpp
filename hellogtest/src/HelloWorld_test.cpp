@@ -36,6 +36,24 @@ TEST(FizzBuzzSpecification, FirstElementShouldBeOne){
 	ASSERT_EQ(string("1"), values[0]) << "FizzBuzz response first word is not one";
 }
 
+TEST(FizzBuzzSpecification, ThirdElementShouldBeThree){
+	FizzBuzz *fizzBuzz = new FizzBuzz();
+	vector<string> values = fizzBuzz->execute();
+	ASSERT_EQ(string("Fizz"), values[2]) << "FizzBuzz response third word is not Fizz";
+}
+
+TEST(FizzBuzzSpecification, FifthElementShouldBeBuzz){
+	FizzBuzz *fizzBuzz = new FizzBuzz();
+	vector<string> values = fizzBuzz->execute();
+	ASSERT_EQ(string("Buzz"), values[4]) << "FizzBuzz response fifth word is not Buzz";
+}
+
+TEST(FizzBuzzSpecification, FifteenthElementShouldBeFizzBuzz){
+	FizzBuzz *fizzBuzz = new FizzBuzz();
+	vector<string> values = fizzBuzz->execute();
+	ASSERT_EQ(string("FizzBuzz"), values[14]) << "FizzBuzz response fifteenth word is not FizzBuzz";
+}
+
 //int main(int argc, char **argv) {
 //  ::testing::InitGoogleTest(&argc, argv);
 //  return RUN_ALL_TESTS();
