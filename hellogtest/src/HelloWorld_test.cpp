@@ -36,7 +36,7 @@ TEST(FizzBuzzSpecification, FirstElementShouldBeOne){
 	ASSERT_EQ(string("1"), values[0]) << "FizzBuzz response first word is not one";
 }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+//int main(int argc, char **argv) {
+//  ::testing::InitGoogleTest(&argc, argv);
+//  return RUN_ALL_TESTS();
+//}
