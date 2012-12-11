@@ -50,12 +50,12 @@ TEST(FizzBuzzSpecification, ExecutionIsQuickEnough){
 	time (&start);
 	for(unsigned int i=0; i<100000;i++){
 		FizzBuzz *fizzBuzz = new FizzBuzz();
-		vector<string> values = fizzBuzz->execute();
+		fizzBuzz->execute();
 		delete fizzBuzz;
 	}
 	time (&end);
 	double dif = difftime (end,start);
-	ASSERT_TRUE(dif <= 20) << "The test was too slow";
+	ASSERT_TRUE(dif <= 1) << "The test was too slow, took " << dif;
 }
 
 //int main(int argc, char **argv) {
