@@ -10,6 +10,7 @@
 #include <vector>
 #include <iostream>
 #include <gtest.h>
+#include <ctime>
 #include "hippomocks.h"
 using namespace std;
 using namespace fizzbuzz;
@@ -42,6 +43,19 @@ TEST(FizzBuzzSpecification, FifteenthElementShouldBeFizzBuzz){
 	FizzBuzz *fizzBuzz = new FizzBuzz();
 	vector<string> values = fizzBuzz->execute();
 	ASSERT_EQ(string("FizzBuzz"), values[14]) << "FizzBuzz response fifteenth word is not FizzBuzz";
+}
+
+TEST(FizzBuzzSpecification, ExecutionIsQuickEnough){
+	time_t start,end;
+	time (&start);
+	for(unsigned int i=0; i<100000;i++){
+		FizzBuzz *fizzBuzz = new FizzBuzz();
+		vector<string> values = fizzBuzz->execute();
+		delete fizzBuzz;
+	}
+	time (&end);
+	double dif = difftime (end,start);
+	ASSERT_TRUE(dif <= 20) << "The test was too slow";
 }
 
 //int main(int argc, char **argv) {
