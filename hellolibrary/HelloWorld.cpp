@@ -21,7 +21,7 @@ HelloWorld::~HelloWorld() {
 
 std::string HelloWorld::greeting(std::string name) {
 	string *greetingText = new string();
-	greetingText->append(":P ");
+	greetingText->append("hello ");
 	greetingText->append(name);
 	return *greetingText;
 }
