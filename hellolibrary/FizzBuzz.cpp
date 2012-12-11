@@ -8,6 +8,7 @@
 #include "FizzBuzz.h"
 #include <string>
 #include <vector>
+#include <sstream>
 using namespace std;
 
 
@@ -24,6 +25,13 @@ FizzBuzz::~FizzBuzz() {
 
 std::vector<std::string> FizzBuzz::execute(){
 	std::vector<std::string> values(100);
+
+	for(unsigned int i=0; i<values.size(); i++){
+		std::stringstream ss;
+		ss << i+1;
+		values[i] = ss.str();
+	}
+
 	return values;
 }
 
