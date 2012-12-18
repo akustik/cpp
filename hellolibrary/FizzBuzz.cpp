@@ -35,14 +35,13 @@ unsigned int FizzBuzz::executeWithArrays(char** values) {
 		bool hasBuzz = (i + 1) % 5 == 0;
 		values[i] = new char[9];
 		if (hasFizz && hasBuzz) {
-			values[i] = "FizzBuzz";
+			sprintf(values[i],"FizzBuzz");
 		} else if (hasFizz) {
-			values[i] = "Fizz";
+			sprintf(values[i],"Fizz");
 		} else if (hasBuzz) {
-			values[i] = "Buzz";
+			sprintf(values[i],"Buzz");
 		} else {
-			values[i] = "1";
-			//sprintf(values[i],"%d",i+1);
+			sprintf(values[i],"%d",i+1);
 		}
 	}
 
