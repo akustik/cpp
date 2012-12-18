@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cstdio>
 using namespace std;
 
 namespace fizzbuzz {
@@ -22,8 +23,38 @@ FizzBuzz::~FizzBuzz() {
 	// TODO Auto-generated destructor stub
 }
 
-std::vector<std::string> FizzBuzz::execute() {
-	std::vector<std::string> values(100);
+/**
+ * Executes the fizzbuzz function backed by raw data types
+ */
+
+unsigned int FizzBuzz::executeWithArrays(char** values) {
+	unsigned int length = 100;
+
+	for (unsigned int i = 0; i < length; i++) {
+		bool hasFizz = (i + 1) % 3 == 0;
+		bool hasBuzz = (i + 1) % 5 == 0;
+		values[i] = new char[9];
+		if (hasFizz && hasBuzz) {
+			values[i] = "FizzBuzz";
+		} else if (hasFizz) {
+			values[i] = "Fizz";
+		} else if (hasBuzz) {
+			values[i] = "Buzz";
+		} else {
+			values[i] = "1";
+			//sprintf(values[i],"%d",i+1);
+		}
+	}
+
+	return length;
+}
+
+/**
+ * Executes the fizzbuzz function backed by the standard c++ library
+ */
+
+vector<string> FizzBuzz::execute() {
+	vector<string> values(100);
 
 	for (unsigned int i = 0; i < values.size(); i++) {
 		bool hasFizz = (i + 1) % 3 == 0;

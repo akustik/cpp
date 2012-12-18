@@ -20,6 +20,7 @@ public:
 	virtual ~FizzBuzz();
 
 	std::vector<std::string> execute();
+	unsigned int executeWithArrays(char**);
 };
 
 } /* namespace fizzbuzz */
