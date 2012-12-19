@@ -15,10 +15,10 @@ public:
 	FizzBuzzResult();
 	virtual ~FizzBuzzResult();
 
-	virtual char* getValue(int);
-	virtual unsigned int getAmount();
+	virtual const char* getValue(int)=0;
+	virtual unsigned int getAmount()=0;
 
-	void print();
+	virtual void print();
 
 };
 

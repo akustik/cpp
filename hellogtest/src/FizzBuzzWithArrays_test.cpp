@@ -64,6 +64,13 @@ TEST(FizzBuzzSpecificationWithArrays, ExecutionIsQuickEnough){
 	ASSERT_TRUE(dif <= 1) << "The test was too slow, took " << dif;
 }
 
+TEST(FizzBuzzSpecificationWithArrays, PrintFizzBuzz){
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	result->print();
+	delete result;
+}
+
 //int main(int argc, char **argv) {
 //  ::testing::InitGoogleTest(&argc, argv);
 //  return RUN_ALL_TESTS();

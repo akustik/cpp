@@ -19,18 +19,9 @@ FizzBuzzResult::FizzBuzzResult() {
 FizzBuzzResult::~FizzBuzzResult() {
 }
 
-char * FizzBuzzResult::getValue(int idx){
-	FizzBuzzException e;
-	throw e;
-}
-
-unsigned int FizzBuzzResult::getAmount(){
-	return 0;
-}
-
 void FizzBuzzResult::print(){
 	for(unsigned int i=0; i<getAmount(); i++){
-		cout << "idx " << i << " => " << getValue(i) << endl;
+		cout << "\tidx " << i << " => " << getValue(i) << endl;
 	}
 }
 

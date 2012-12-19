@@ -6,6 +6,9 @@
  */
 
 #include "RawFizzBuzzResult.h"
+#include <iostream>
+
+using namespace std;
 
 namespace fizzbuzz {
 
@@ -18,12 +21,17 @@ RawFizzBuzzResult::~RawFizzBuzzResult() {
 	delete[] _values;
 }
 
-char* RawFizzBuzzResult::getValue(int idx){
+const char* RawFizzBuzzResult::getValue(int idx){
 	return _values[idx];
 }
 
 unsigned int RawFizzBuzzResult::getAmount(){
 	return _amount;
+}
+
+void RawFizzBuzzResult::print(){
+	cout << "RawFizzBuzzResult" << endl;
+	FizzBuzzResult::print();
 }
 
 } /* namespace fizzbuzz */

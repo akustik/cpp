@@ -20,7 +20,7 @@ public:
 	FizzBuzz();
 	virtual ~FizzBuzz();
 
-	std::vector<std::string> execute();
+	FizzBuzzResult* execute();
 	FizzBuzzResult* executeWithArrays();
 
 };

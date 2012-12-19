@@ -16,46 +16,58 @@ using namespace std;
 using namespace fizzbuzz;
 
 TEST(FizzBuzzSpecification, ShouldReturnAHundreadElements){
-	FizzBuzz *fizzBuzz = new FizzBuzz();
-	vector<string> values = fizzBuzz->execute();
-	ASSERT_EQ(100u, values.size()) << "FizzBuzz response hasn't length 100";
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	ASSERT_EQ(100u, result->getAmount()) << "FizzBuzz response hasn't length 100";
+	delete result;
 }
 
 TEST(FizzBuzzSpecification, FirstElementShouldBeOne){
-	FizzBuzz *fizzBuzz = new FizzBuzz();
-	vector<string> values = fizzBuzz->execute();
-	ASSERT_EQ(string("1"), values[0]) << "FizzBuzz response first word is not one";
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	ASSERT_STREQ("1", result->getValue(0)) << "FizzBuzz response first word is not one";
+	delete result;
 }
 
 TEST(FizzBuzzSpecification, ThirdElementShouldBeThree){
-	FizzBuzz *fizzBuzz = new FizzBuzz();
-	vector<string> values = fizzBuzz->execute();
-	ASSERT_EQ(string("Fizz"), values[2]) << "FizzBuzz response third word is not Fizz";
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	ASSERT_STREQ("Fizz", result->getValue(2)) << "FizzBuzz response third word is not Fizz";
+	delete result;
 }
 
 TEST(FizzBuzzSpecification, FifthElementShouldBeBuzz){
-	FizzBuzz *fizzBuzz = new FizzBuzz();
-	vector<string> values = fizzBuzz->execute();
-	ASSERT_EQ(string("Buzz"), values[4]) << "FizzBuzz response fifth word is not Buzz";
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	ASSERT_STREQ("Buzz", result->getValue(4)) << "FizzBuzz response fifth word is not Buzz";
+	delete result;
 }
 
 TEST(FizzBuzzSpecification, FifteenthElementShouldBeFizzBuzz){
-	FizzBuzz *fizzBuzz = new FizzBuzz();
-	vector<string> values = fizzBuzz->execute();
-	ASSERT_EQ(string("FizzBuzz"), values[14]) << "FizzBuzz response fifteenth word is not FizzBuzz";
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	ASSERT_STREQ("FizzBuzz", result->getValue(14)) << "FizzBuzz response fifteenth word is not FizzBuzz";
+	delete result;
 }
 
 TEST(FizzBuzzSpecification, ExecutionIsQuickEnough){
 	time_t start,end;
 	time (&start);
+	FizzBuzz fizzBuzz;
 	for(unsigned int i=0; i<100000;i++){
-		FizzBuzz *fizzBuzz = new FizzBuzz();
-		fizzBuzz->execute();
-		delete fizzBuzz;
+		FizzBuzzResult *result = fizzBuzz.execute();
+		delete result;
 	}
 	time (&end);
 	double dif = difftime (end,start);
 	ASSERT_TRUE(dif <= 1) << "The test was too slow, took " << dif;
+}
+
+TEST(FizzBuzzSpecification, PrintFizzBuzz){
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult *result = fizzBuzz.execute();
+	result->print();
+	delete result;
 }
 
 //int main(int argc, char **argv) {

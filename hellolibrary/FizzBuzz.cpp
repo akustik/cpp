@@ -13,6 +13,7 @@
 #include <iostream>
 #include "FizzBuzzResult.h"
 #include "RawFizzBuzzResult.h"
+#include "VectorFizzBuzzResult.h"
 
 using namespace std;
 
@@ -62,7 +63,7 @@ FizzBuzzResult* FizzBuzz::executeWithArrays() {
  * Executes the fizzbuzz function backed by the standard c++ library
  */
 
-vector<string> FizzBuzz::execute() {
+FizzBuzzResult* FizzBuzz::execute() {
 	vector<string> values(100);
 
 	for (unsigned int i = 0; i < values.size(); i++) {
@@ -82,6 +83,7 @@ vector<string> FizzBuzz::execute() {
 		}
 	}
 
-	return values;
+	VectorFizzBuzzResult* result = new VectorFizzBuzzResult(values);
+	return result;
 }
 } /* namespace fizzbuzz */

@@ -20,8 +20,9 @@ public:
 	RawFizzBuzzResult(int, char**);
 	virtual ~RawFizzBuzzResult();
 
-	char* getValue(int);
+	const char* getValue(int);
 	unsigned int getAmount();
+	void print();
 };
 
 } /* namespace fizzbuzz */
