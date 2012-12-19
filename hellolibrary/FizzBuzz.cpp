@@ -11,27 +11,25 @@
 #include <sstream>
 #include <cstdio>
 #include <iostream>
+#include "FizzBuzzResult.h"
+#include "RawFizzBuzzResult.h"
 
 using namespace std;
 
 namespace fizzbuzz {
 
 FizzBuzz::FizzBuzz() {
-	// TODO Auto-generated constructor stub
-
 }
 
 FizzBuzz::~FizzBuzz() {
-	// TODO Auto-generated destructor stub
 }
 
 /**
  * Executes the fizzbuzz function backed by raw data types
  */
 
-unsigned int FizzBuzz::executeWithArrays(char** values) {
-	unsigned int length = 100;
-
+FizzBuzzResult* FizzBuzz::executeWithArrays() {
+	char** values = new char*[100];
 	char* fizzBuzz = new char[9];
 	sprintf(fizzBuzz, "FizzBuzz");
 	char* fizz = new char [5];
@@ -39,7 +37,7 @@ unsigned int FizzBuzz::executeWithArrays(char** values) {
 	char* buzz = new char [5];
 	sprintf(buzz, "Buzz");
 
-	for (unsigned int i = 0; i < length; i++) {
+	for (unsigned int i = 0; i < 100; i++) {
 		bool hasFizz = (i + 1) % 3 == 0;
 		bool hasBuzz = (i + 1) % 5 == 0;
 
@@ -55,7 +53,9 @@ unsigned int FizzBuzz::executeWithArrays(char** values) {
 		}
 	}
 
-	return length;
+	RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(100, values);
+
+	return rawResult;
 }
 
 /**
@@ -84,12 +84,4 @@ vector<string> FizzBuzz::execute() {
 
 	return values;
 }
-
-void FizzBuzz::printArrayResponse(char** values){
-	cout << "array address" << values << endl;
-	for(unsigned int i=0; i<100; i++){
-		cout << "address " << i << " => " << values[i] << endl;
-	}
-}
-
 } /* namespace fizzbuzz */

@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include "FizzBuzzResult.h"
 using namespace std;
 
 namespace fizzbuzz {
@@ -20,8 +21,7 @@ public:
 	virtual ~FizzBuzz();
 
 	std::vector<std::string> execute();
-	unsigned int executeWithArrays(char**);
-	void printArrayResponse(char**);
+	FizzBuzzResult* executeWithArrays();
 
 };
 
