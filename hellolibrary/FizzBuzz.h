@@ -21,6 +21,8 @@ public:
 
 	std::vector<std::string> execute();
 	unsigned int executeWithArrays(char**);
+	void printArrayResponse(char**);
+
 };
 
 } /* namespace fizzbuzz */

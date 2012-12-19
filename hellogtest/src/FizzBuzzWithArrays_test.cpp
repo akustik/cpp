@@ -20,7 +20,10 @@ TEST(FizzBuzzSpecificationWithArrays, ShouldReturnAHundreadElements){
 	char** values = new char*[100];
 	unsigned int size = fizzBuzz->executeWithArrays(values);
 	ASSERT_EQ(100u, size) << "FizzBuzz response hasn't length 100";
+	//fizzBuzz->printArrayResponse(values);
 	delete[] values;
+	//fizzBuzz->printArrayResponse(values);
+	delete fizzBuzz;
 }
 
 TEST(FizzBuzzSpecificationWithArrays, FirstElementShouldBeOne){
@@ -29,6 +32,25 @@ TEST(FizzBuzzSpecificationWithArrays, FirstElementShouldBeOne){
 	fizzBuzz->executeWithArrays(values);
 	ASSERT_STREQ("1", values[0]) << "FizzBuzz response first word is not one";
 	delete[] values;
+	delete fizzBuzz;
+}
+
+TEST(FizzBuzzSpecificationWithArrays, ThirdElementShouldBeThree){
+	FizzBuzz *fizzBuzz = new FizzBuzz();
+	char** values = new char*[100];
+	fizzBuzz->executeWithArrays(values);
+	ASSERT_STREQ("Fizz", values[2]) << "FizzBuzz response third word is not Fizz";
+	delete[] values;
+	delete fizzBuzz;
+}
+
+TEST(FizzBuzzSpecificationWithArrays, FifthElementShouldBeBuzz){
+	FizzBuzz *fizzBuzz = new FizzBuzz();
+	char** values = new char*[100];
+	fizzBuzz->executeWithArrays(values);
+	ASSERT_STREQ("Buzz", values[4]) << "FizzBuzz response fifth word is not Buzz";
+	delete[] values;
+	delete fizzBuzz;
 }
 
 TEST(FizzBuzzSpecificationWithArrays, FifteenthElementShouldBeFizzBuzz){
@@ -37,6 +59,7 @@ TEST(FizzBuzzSpecificationWithArrays, FifteenthElementShouldBeFizzBuzz){
 	fizzBuzz->executeWithArrays(values);
 	ASSERT_STREQ("FizzBuzz", values[14]) << "FizzBuzz response fifteenth word is not FizzBuzz";
 	delete[] values;
+	delete fizzBuzz;
 }
 
 TEST(FizzBuzzSpecificationWithArrays, ExecutionIsQuickEnough){

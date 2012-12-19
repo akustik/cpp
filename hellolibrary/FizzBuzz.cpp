@@ -10,6 +10,8 @@
 #include <vector>
 #include <sstream>
 #include <cstdio>
+#include <iostream>
+
 using namespace std;
 
 namespace fizzbuzz {
@@ -30,17 +32,25 @@ FizzBuzz::~FizzBuzz() {
 unsigned int FizzBuzz::executeWithArrays(char** values) {
 	unsigned int length = 100;
 
+	char* fizzBuzz = new char[9];
+	sprintf(fizzBuzz, "FizzBuzz");
+	char* fizz = new char [5];
+	sprintf(fizz, "Fizz");
+	char* buzz = new char [5];
+	sprintf(buzz, "Buzz");
+
 	for (unsigned int i = 0; i < length; i++) {
 		bool hasFizz = (i + 1) % 3 == 0;
 		bool hasBuzz = (i + 1) % 5 == 0;
-		values[i] = new char[9];
+
 		if (hasFizz && hasBuzz) {
-			sprintf(values[i],"FizzBuzz");
+			values[i] = fizzBuzz;
 		} else if (hasFizz) {
-			sprintf(values[i],"Fizz");
+			values[i] = fizz;
 		} else if (hasBuzz) {
-			sprintf(values[i],"Buzz");
+			values[i] = buzz;
 		} else {
+			values[i] = new char[4];
 			sprintf(values[i],"%d",i+1);
 		}
 	}
@@ -73,6 +83,13 @@ vector<string> FizzBuzz::execute() {
 	}
 
 	return values;
+}
+
+void FizzBuzz::printArrayResponse(char** values){
+	cout << "array address" << values << endl;
+	for(unsigned int i=0; i<100; i++){
+		cout << "address " << i << " => " << values[i] << endl;
+	}
 }
 
 } /* namespace fizzbuzz */
