@@ -7,9 +7,20 @@
 //============================================================================
 
 #include <iostream>
-using namespace std;
+#include "FizzBuzz.h"
+#include "FizzBuzzResult.h"
 
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	return 0;
+using namespace std;
+using namespace fizzbuzz;
+
+int main(int argc, char **argv) {
+	FizzBuzz fizzBuzz;
+	FizzBuzzResult* vectorResults = fizzBuzz.execute();
+	vectorResults->print();
+
+	FizzBuzzResult* rawResults =fizzBuzz.executeWithArrays();
+	rawResults->print();
+
+	delete vectorResults;
+	delete rawResults;
 }
