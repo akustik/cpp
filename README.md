@@ -5,6 +5,8 @@ cppkatas
 
 http://www.cplusplus.com/doc/tutorial/
 
+http://linuxdevcenter.com/pub/a/linux/2003/05/08/cpp_mm-1.html (Memory management)
+
 2) About unit testing
 
 http://feelings-erased.blogspot.com.es/2012/07/eclipse-juno-has-landed-with-unit.html
