@@ -38,12 +38,12 @@ int main(int argc, char **argv) {
 		if(executionType.compare(string("VECTOR")) == 0){
 			cout << "Computing vector fizzbuzz " << iTimes << " times" << endl;
 			for(unsigned int i=0; i<iTimes; i++){
-				doRaw();
+				doVector();
 			}
 		} else if (executionType.compare(string("RAW")) == 0){
 			cout << "Computing raw fizzbuzz " << iTimes << " times" << endl;
 			for(unsigned int i=0; i<iTimes; i++){
-				doVector();
+				doRaw();
 			}
 		} else {
 			cout << "Usage: <type: VECTOR or RAW> <times>: "
