@@ -21,7 +21,7 @@ public:
 	virtual ~FizzBuzz();
 
 	FizzBuzzResult* execute();
-	FizzBuzzResult* executeWithArrays();
+	FizzBuzzResult* executeWithArrays(char*);
 
 };
 

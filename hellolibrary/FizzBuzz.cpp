@@ -20,6 +20,7 @@ using namespace std;
 namespace fizzbuzz {
 
 FizzBuzz::FizzBuzz() {
+
 }
 
 FizzBuzz::~FizzBuzz() {
@@ -29,8 +30,7 @@ FizzBuzz::~FizzBuzz() {
  * Executes the fizzbuzz function backed by raw data types
  */
 
-FizzBuzzResult* FizzBuzz::executeWithArrays() {
-	char* values = new char[100*9];
+FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) {
 	for (unsigned int i = 0; i < 100; i++) {
 		bool hasFizz = (i + 1) % 3 == 0;
 		bool hasBuzz = (i + 1) % 5 == 0;

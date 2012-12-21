@@ -18,47 +18,62 @@ using namespace fizzbuzz;
 
 TEST(FizzBuzzSpecificationWithArrays, ShouldReturnAHundreadElements){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	ASSERT_EQ(100u, result->getAmount()) << "FizzBuzz response hasn't length 100";
 	delete result;
+	delete[] values;
 }
 
 TEST(FizzBuzzSpecificationWithArrays, FirstElementShouldBeOne){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	ASSERT_STREQ("1", result->getValue(0)) << "FizzBuzz response first word is not one";
 	delete result;
+	delete[] values;
 }
 
 TEST(FizzBuzzSpecificationWithArrays, ThirdElementShouldBeThree){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	ASSERT_STREQ("Fizz", result->getValue(2)) << "FizzBuzz response third word is not Fizz";
 	delete result;
+	delete[] values;
 }
+
 
 TEST(FizzBuzzSpecificationWithArrays, FifthElementShouldBeBuzz){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	ASSERT_STREQ("Buzz", result->getValue(4)) << "FizzBuzz response fifth word is not Buzz";
 	delete result;
+	delete[] values;
 }
+
 
 TEST(FizzBuzzSpecificationWithArrays, FifteenthElementShouldBeFizzBuzz){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	ASSERT_STREQ("FizzBuzz", result->getValue(14)) << "FizzBuzz response fifteenth word is not FizzBuzz";
 	delete result;
+	delete[] values;
 }
+
 
 TEST(FizzBuzzSpecificationWithArrays, ExecutionIsQuickEnough){
 	time_t start,end;
 	time (&start);
 	FizzBuzz fizzBuzz;
+	char* values = new char[100*9];
 	for(unsigned int i=0; i<100000;i++){
-		FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+		FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 		delete result;
 	}
+	delete[] values;
 	time (&end);
 	double dif = difftime (end,start);
 	ASSERT_TRUE(dif <= 1) << "The test was too slow, took " << dif;
@@ -66,7 +81,8 @@ TEST(FizzBuzzSpecificationWithArrays, ExecutionIsQuickEnough){
 
 TEST(FizzBuzzSpecificationWithArrays, PrintFizzBuzz){
 	FizzBuzz fizzBuzz;
-	FizzBuzzResult *result = fizzBuzz.executeWithArrays();
+	char* values = new char[100*9];
+	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	result->print();
 	delete result;
 }

@@ -18,7 +18,7 @@ RawFizzBuzzResult::RawFizzBuzzResult(int amount, char* values) {
 }
 
 RawFizzBuzzResult::~RawFizzBuzzResult() {
-	delete[] _values;
+	//The buffer must be deleted outside the scope
 }
 
 const char* RawFizzBuzzResult::getValue(int idx){
