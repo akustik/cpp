@@ -15,9 +15,9 @@ namespace fizzbuzz {
 class RawFizzBuzzResult: public FizzBuzzResult {
 private:
 	int _amount;
-	char** _values;
+	char* _values;
 public:
-	RawFizzBuzzResult(int, char**);
+	RawFizzBuzzResult(int, char*);
 	virtual ~RawFizzBuzzResult();
 
 	const char* getValue(int);

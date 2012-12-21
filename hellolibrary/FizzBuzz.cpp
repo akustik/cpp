@@ -30,27 +30,19 @@ FizzBuzz::~FizzBuzz() {
  */
 
 FizzBuzzResult* FizzBuzz::executeWithArrays() {
-	char** values = new char*[100];
-	char* fizzBuzz = new char[9];
-	sprintf(fizzBuzz, "FizzBuzz");
-	char* fizz = new char [5];
-	sprintf(fizz, "Fizz");
-	char* buzz = new char [5];
-	sprintf(buzz, "Buzz");
-
+	char* values = new char[100*9];
 	for (unsigned int i = 0; i < 100; i++) {
 		bool hasFizz = (i + 1) % 3 == 0;
 		bool hasBuzz = (i + 1) % 5 == 0;
 
 		if (hasFizz && hasBuzz) {
-			values[i] = fizzBuzz;
+			sprintf(&values[i*9], "FizzBuzz");
 		} else if (hasFizz) {
-			values[i] = fizz;
+			sprintf(&values[i*9], "Fizz");
 		} else if (hasBuzz) {
-			values[i] = buzz;
+			sprintf(&values[i*9], "Buzz");
 		} else {
-			values[i] = new char[4];
-			sprintf(values[i],"%d",i+1);
+			sprintf(&values[i*9],"%d",i+1);
 		}
 	}
 

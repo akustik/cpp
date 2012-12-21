@@ -12,7 +12,7 @@ using namespace std;
 
 namespace fizzbuzz {
 
-RawFizzBuzzResult::RawFizzBuzzResult(int amount, char** values) {
+RawFizzBuzzResult::RawFizzBuzzResult(int amount, char* values) {
 	_amount = amount;
 	_values = values;
 }
@@ -22,7 +22,7 @@ RawFizzBuzzResult::~RawFizzBuzzResult() {
 }
 
 const char* RawFizzBuzzResult::getValue(int idx){
-	return _values[idx];
+	return &_values[idx*9];
 }
 
 unsigned int RawFizzBuzzResult::getAmount(){
