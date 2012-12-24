@@ -57,7 +57,7 @@ FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) throw (FizzBuzzExcepti
 		RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(NUMBER_OF_ELEMENTS, values);
 		return rawResult;
 	} else {
-		throw FizzBuzzException();
+		throw FizzBuzzException(string("the buffer is null"));
 	}
 }
 

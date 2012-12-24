@@ -14,6 +14,7 @@
 #include "hippomocks.h"
 #include "FizzBuzzResult.h"
 #include <exception>
+#include "FizzBuzzException.h"
 using namespace std;
 using namespace fizzbuzz;
 
@@ -97,6 +98,10 @@ TEST(FizzBuzzSpecificationWithArrays, ShouldRaiseAnException){
 	} catch(exception& e){
 		ASSERT_STREQ("Something happened with the FizzBuzz", e.what())
 				<< "The raised exception is wrong";
+		FizzBuzzException* fbe = dynamic_cast<FizzBuzzException*>(&e);
+		ASSERT_STREQ("Something happened with the FizzBuzz", fbe->what())
+				<< "The raised exception is wrong";
+		ASSERT_EQ(string("the buffer is null"), fbe->description());
 	}
 }
 
