@@ -23,9 +23,9 @@ FizzBuzzPrinter::~FizzBuzzPrinter() {
 void FizzBuzzPrinter::print(vector<string> result){
 	cout << "FizzBuzz [";
 	for (vector<string>::iterator it = result.begin(); it!=result.end(); ++it) {
-	    cout << *it;
+	    cout << *it << " ";
 	}
-	cout << endl;
+	cout << "]" << endl;
 }
 
 } /* namespace fizzbuzz */

@@ -12,6 +12,8 @@
 #include <gtest.h>
 #include <ctime>
 #include "hippomocks.h"
+#include "FizzBuzzPrinter.h"
+#include "VectorFizzBuzzResult.h"
 using namespace std;
 using namespace fizzbuzz;
 
@@ -66,7 +68,9 @@ TEST(FizzBuzzSpecification, ExecutionIsQuickEnough){
 TEST(FizzBuzzSpecification, PrintFizzBuzz){
 	FizzBuzz fizzBuzz;
 	FizzBuzzResult *result = fizzBuzz.execute();
-	result->print();
+	VectorFizzBuzzResult* vectorResult = dynamic_cast<VectorFizzBuzzResult*>(result);
+	FizzBuzzPrinter printer;
+	printer.print(vectorResult->getValues());
 	delete result;
 }
 

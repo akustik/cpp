@@ -35,4 +35,8 @@ void VectorFizzBuzzResult::print(){
 	FizzBuzzResult::print();
 }
 
+vector<string> VectorFizzBuzzResult::getValues(){
+	return _values;
+}
+
 } /* namespace fizzbuzz */

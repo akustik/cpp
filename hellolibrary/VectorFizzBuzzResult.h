@@ -27,6 +27,7 @@ public:
 	const char* getValue(int);
 	unsigned int getAmount();
 	void print();
+	vector<string> getValues();
 };
 
 } /* namespace fizzbuzz */
