@@ -6,16 +6,26 @@
  */
 
 #include "FizzBuzzPrinter.h"
+#include <iostream>
+
+using namespace std;
 
 namespace fizzbuzz {
 
 FizzBuzzPrinter::FizzBuzzPrinter() {
-	// TODO Auto-generated constructor stub
 
 }
 
 FizzBuzzPrinter::~FizzBuzzPrinter() {
-	// TODO Auto-generated destructor stub
+
+}
+
+void FizzBuzzPrinter::print(vector<string> result){
+	cout << "FizzBuzz [";
+	for (vector<string>::iterator it = result.begin(); it!=result.end(); ++it) {
+	    cout << *it;
+	}
+	cout << endl;
 }
 
 } /* namespace fizzbuzz */
