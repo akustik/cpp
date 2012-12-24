@@ -15,6 +15,13 @@
 #include "RawFizzBuzzResult.h"
 #include "VectorFizzBuzzResult.h"
 
+#define NUMBER_OF_ELEMENTS 100
+#define FIZZ_ELEMENT 3
+#define BUZZ_ELEMENT 5
+#define FIZZ_STRING "Fizz"
+#define BUZZ_STRING "Buzz"
+#define FIZZBUZZ_STRING "FizzBuzz"
+
 using namespace std;
 
 namespace fizzbuzz {
@@ -31,22 +38,22 @@ FizzBuzz::~FizzBuzz() {
  */
 
 FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) {
-	for (unsigned int i = 0; i < 100; i++) {
-		bool hasFizz = (i + 1) % 3 == 0;
-		bool hasBuzz = (i + 1) % 5 == 0;
+	for (unsigned int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+		bool hasFizz = (i + 1) % FIZZ_ELEMENT == 0;
+		bool hasBuzz = (i + 1) % BUZZ_ELEMENT == 0;
 
 		if (hasFizz && hasBuzz) {
-			sprintf(&values[i*9], "FizzBuzz");
+			sprintf(&values[i*9], FIZZBUZZ_STRING);
 		} else if (hasFizz) {
-			sprintf(&values[i*9], "Fizz");
+			sprintf(&values[i*9], FIZZ_STRING);
 		} else if (hasBuzz) {
-			sprintf(&values[i*9], "Buzz");
+			sprintf(&values[i*9], BUZZ_STRING);
 		} else {
 			sprintf(&values[i*9],"%d",i+1);
 		}
 	}
 
-	RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(100, values);
+	RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(NUMBER_OF_ELEMENTS, values);
 
 	return rawResult;
 }
@@ -56,17 +63,17 @@ FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) {
  */
 
 FizzBuzzResult* FizzBuzz::execute() {
-	vector<string> values(100);
+	vector<string> values(NUMBER_OF_ELEMENTS);
 
 	for (unsigned int i = 0; i < values.size(); i++) {
-		bool hasFizz = (i + 1) % 3 == 0;
-		bool hasBuzz = (i + 1) % 5 == 0;
+		bool hasFizz = (i + 1) % FIZZ_ELEMENT == 0;
+		bool hasBuzz = (i + 1) % BUZZ_ELEMENT == 0;
 		if (hasFizz && hasBuzz) {
-			values[i] = string("FizzBuzz");
+			values[i] = string(FIZZBUZZ_STRING);
 		} else if (hasFizz) {
-			values[i] = string("Fizz");
+			values[i] = string(FIZZ_STRING);
 		} else if (hasBuzz) {
-			values[i] = string("Buzz");
+			values[i] = string(BUZZ_STRING);
 		} else {
 			// Default, the number
 			std::stringstream ss;
