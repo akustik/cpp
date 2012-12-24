@@ -37,25 +37,28 @@ FizzBuzz::~FizzBuzz() {
  * Executes the fizzbuzz function backed by raw data types
  */
 
-FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) {
-	for (unsigned int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
-		bool hasFizz = (i + 1) % FIZZ_ELEMENT == 0;
-		bool hasBuzz = (i + 1) % BUZZ_ELEMENT == 0;
+FizzBuzzResult* FizzBuzz::executeWithArrays(char* values) throw (FizzBuzzException){
+	if(values != NULL){
+		for (unsigned int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+			bool hasFizz = (i + 1) % FIZZ_ELEMENT == 0;
+			bool hasBuzz = (i + 1) % BUZZ_ELEMENT == 0;
 
-		if (hasFizz && hasBuzz) {
-			sprintf(&values[i*9], FIZZBUZZ_STRING);
-		} else if (hasFizz) {
-			sprintf(&values[i*9], FIZZ_STRING);
-		} else if (hasBuzz) {
-			sprintf(&values[i*9], BUZZ_STRING);
-		} else {
-			sprintf(&values[i*9],"%d",i+1);
+			if (hasFizz && hasBuzz) {
+				sprintf(&values[i*9], FIZZBUZZ_STRING);
+			} else if (hasFizz) {
+				sprintf(&values[i*9], FIZZ_STRING);
+			} else if (hasBuzz) {
+				sprintf(&values[i*9], BUZZ_STRING);
+			} else {
+				sprintf(&values[i*9],"%d",i+1);
+			}
 		}
+
+		RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(NUMBER_OF_ELEMENTS, values);
+		return rawResult;
+	} else {
+		throw FizzBuzzException();
 	}
-
-	RawFizzBuzzResult* rawResult = new RawFizzBuzzResult(NUMBER_OF_ELEMENTS, values);
-
-	return rawResult;
 }
 
 /**

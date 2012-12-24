@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include "FizzBuzzResult.h"
+#include "FizzBuzzException.h"
 using namespace std;
 
 namespace fizzbuzz {
@@ -21,7 +22,7 @@ public:
 	virtual ~FizzBuzz();
 
 	FizzBuzzResult* execute();
-	FizzBuzzResult* executeWithArrays(char*);
+	FizzBuzzResult* executeWithArrays(char*) throw (FizzBuzzException);
 
 };
 

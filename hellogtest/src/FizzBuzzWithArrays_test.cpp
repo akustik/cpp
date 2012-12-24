@@ -13,6 +13,7 @@
 #include <ctime>
 #include "hippomocks.h"
 #include "FizzBuzzResult.h"
+#include <exception>
 using namespace std;
 using namespace fizzbuzz;
 
@@ -85,6 +86,18 @@ TEST(FizzBuzzSpecificationWithArrays, PrintFizzBuzz){
 	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	result->print();
 	delete result;
+}
+
+TEST(FizzBuzzSpecificationWithArrays, ShouldRaiseAnException){
+	FizzBuzz fizzBuzz;
+	char* values = NULL;
+	try {
+		FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
+		delete result;
+	} catch(exception& e){
+		ASSERT_STREQ("Something happened with the FizzBuzz", e.what())
+				<< "The raised exception is wrong";
+	}
 }
 
 //int main(int argc, char **argv) {

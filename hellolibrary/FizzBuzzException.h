@@ -15,6 +15,7 @@ namespace fizzbuzz {
 class FizzBuzzException: public std::exception {
 public:
 	FizzBuzzException();
+	virtual const char* what() const throw();
 };
 
 } /* namespace fizzbuzz */

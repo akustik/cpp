@@ -13,7 +13,7 @@ FizzBuzzException::FizzBuzzException() {
 
 }
 
-const char* what(){
+const char* FizzBuzzException::what() const throw(){
    return "Something happened with the FizzBuzz";
 }
 
