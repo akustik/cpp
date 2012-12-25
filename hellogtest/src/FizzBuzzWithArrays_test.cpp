@@ -86,6 +86,7 @@ TEST(FizzBuzzSpecificationWithArrays, PrintFizzBuzz){
 	char* values = new char[100*9];
 	FizzBuzzResult *result = fizzBuzz.executeWithArrays(values);
 	result->print();
+	delete[] values;
 	delete result;
 }
 
