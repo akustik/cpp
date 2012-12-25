@@ -30,5 +30,9 @@ const vector<string> PokerHand::cards(){
 	return _cards;
 }
 
+void PokerHand::addCard(const string card){
+	_cards.push_back(card);
+}
+
 
 } /* namespace pokerhands */

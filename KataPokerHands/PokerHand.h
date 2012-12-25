@@ -25,6 +25,8 @@ public:
 
 	const string owner();
 	const vector<string> cards();
+
+	void addCard(const string);
 };
 
 } /* namespace pokerhands */
