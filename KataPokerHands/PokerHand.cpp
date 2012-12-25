@@ -13,9 +13,9 @@ using namespace std;
 
 namespace pokerhands {
 
-PokerHand::PokerHand(const string owner, const vector<string> cards) {
+PokerHand::PokerHand(const string owner) {
 	_owner = owner;
-	_cards = cards;
+	_cards = vector<PokerCard>();
 }
 
 PokerHand::~PokerHand() {
@@ -26,12 +26,12 @@ const string PokerHand::owner(){
 	return _owner;
 }
 
-const vector<string> PokerHand::cards(){
+const vector<PokerCard> PokerHand::cards(){
 	return _cards;
 }
 
 void PokerHand::addCard(const string card){
-	_cards.push_back(card);
+	_cards.push_back(PokerCard(card));
 }
 
 

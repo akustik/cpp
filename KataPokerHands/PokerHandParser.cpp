@@ -34,8 +34,7 @@ const vector<PokerHand> PokerHandParser::parse(const string input){
 		  if(temp.find_first_of(':') != string::npos){
 			  //there is a new owner, add it to the hand and update the idx
 			  string owner = temp.substr(0, temp.size() - 1);
-			  vector<string> cards;
-			  PokerHand hand(owner, cards);
+			  PokerHand hand(owner);
 			  hands.push_back(hand);
 		  } else {
 			  //It is a card for the given hand

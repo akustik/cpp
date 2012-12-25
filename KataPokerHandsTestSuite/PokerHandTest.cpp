@@ -14,19 +14,16 @@ using namespace std;
 using namespace pokerhands;
 
 TEST(PokerHandSpecs, ShouldReturnTheOwnerProvidedInTheConstructor){
-	vector<string> cards(5);
-	PokerHand hand(string("owner"), cards);
+	PokerHand hand(string("owner"));
 
 	ASSERT_EQ(string("owner"), hand.owner()) << "The owner does not match";
 }
 
 TEST(PokerHandSpecs, ShouldReturnTheCardsProvidedInTheConstructor){
-	vector<string> cards(5);
-	cards[0] = string("2H");
-	PokerHand hand(string("owner"), cards);
+	PokerHand hand(string("owner"));
+	hand.addCard(string("2H"));
 
-	ASSERT_EQ(cards, hand.cards()) << "The cards do not match";
-	ASSERT_EQ(string("2H"), hand.cards()[0]);
+	ASSERT_EQ(string("2H"), hand.cards()[0].card());
 }
 
 
