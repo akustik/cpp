@@ -19,8 +19,11 @@ TEST(PokerHandParserSpecs, ShouldReturnTwoPokerHandsWithOwners){
 	vector<PokerHand> hands = parser.parse(string("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH"));
 
 	ASSERT_EQ(2u, hands.size()) << "The number of hands is wrong";
-	ASSERT_EQ(string("Black"), hands[0].owner()) << "The first owner is wrong";
-	ASSERT_EQ(string("White"), hands[1].owner()) << "The second owner is wrong";
+
+	const string owner1 = hands[0].owner();
+	const string owner2 = hands[1].owner();
+	ASSERT_EQ(string("Black"), owner1) << "The first owner is wrong";
+	ASSERT_EQ(string("White"), owner2) << "The second owner is wrong";
 }
 
 TEST(PokerHandParserSpecs, ShouldReturnTwoPokerHandsWithTheGivenCards){

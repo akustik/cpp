@@ -16,7 +16,8 @@ using namespace pokerhands;
 TEST(PokerHandSpecs, ShouldReturnTheOwnerProvidedInTheConstructor){
 	PokerHand hand(string("owner"));
 
-	ASSERT_EQ(string("owner"), hand.owner()) << "The owner does not match";
+	const string owner = hand.owner();
+	ASSERT_EQ(string("owner"), owner) << "The owner does not match";
 }
 
 TEST(PokerHandSpecs, ShouldReturnTheCardsProvidedInTheConstructor){

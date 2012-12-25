@@ -28,6 +28,33 @@ const char PokerCard::color() const {
 	return _card[1];
 }
 
+const string PokerCard::name() const {
+	char symbol = _card[0];
+	string name;
+	switch(symbol){
+	case 'T':
+		name = string("10");
+		break;
+	case 'J':
+		name = string("Jack");
+		break;
+	case 'Q':
+		name = string("Queen");
+		break;
+	case 'K':
+		name = string("King");
+		break;
+	case 'A':
+		name = string("Ace");
+		break;
+	default:
+		name = _card.substr(0,1);
+		break;
+	}
+
+	return name;
+}
+
 const int PokerCard::value() const {
 	char symbol = _card[0];
 	int value = 0;

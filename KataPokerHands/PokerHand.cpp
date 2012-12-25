@@ -22,7 +22,7 @@ PokerHand::~PokerHand() {
 
 }
 
-const string PokerHand::owner(){
+const string PokerHand::owner() const{
 	return _owner;
 }
 

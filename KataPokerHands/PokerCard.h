@@ -22,6 +22,7 @@ public:
 	virtual ~PokerCard();
 
 	const string card() const;
+	const string name() const;
 	const char color() const;
 	const int value() const;
 

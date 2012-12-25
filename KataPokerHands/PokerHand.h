@@ -24,7 +24,7 @@ public:
 	PokerHand(string owner);
 	virtual ~PokerHand();
 
-	const string owner();
+	const string owner() const;
 	const vector<PokerCard> cards() const;
 
 	void addCard(const string);
