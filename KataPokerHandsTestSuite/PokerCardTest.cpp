@@ -23,4 +23,18 @@ TEST(PokerCardSpecs, ShouldPrintTheCardToTheOutputStream){
 	ASSERT_EQ(string("2H"), value) << "The card value does not match";
 }
 
+TEST(PokerCardSpecs, ShouldBeAbleToCheckWhetherTwoCardsHaveTheSameValue){
+	PokerCard card1(string("2H"));
+	PokerCard card2(string("2C"));
+
+	ASSERT_TRUE(card1 == card2) << "The equality comparison failed";
+}
+
+TEST(PokerCardSpecs, ShouldBeAbleToCheckWhetherACardHasLessValueThanAnother){
+	PokerCard card1(string("2H"));
+	PokerCard card2(string("AC"));
+
+	ASSERT_TRUE(card1 < card2) << "The lower than comparison failed";
+}
+
 

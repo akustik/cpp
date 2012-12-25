@@ -22,8 +22,17 @@ public:
 	virtual ~PokerCard();
 
 	const string card() const;
+	const char color() const;
+	const int value() const;
 
 	friend ostream& operator<<(ostream& os, const PokerCard& c);
+
+	friend bool operator==(const PokerCard& lhs, const PokerCard& rhs){ return lhs.value() == rhs.value(); }
+	friend bool operator!=(const PokerCard& lhs, const PokerCard& rhs){return !operator==(lhs,rhs);}
+	friend bool operator< (const PokerCard& lhs, const PokerCard& rhs){ return lhs.value() < rhs.value(); }
+	friend bool operator> (const PokerCard& lhs, const PokerCard& rhs){return  operator< (rhs,lhs);}
+	friend bool operator<=(const PokerCard& lhs, const PokerCard& rhs){return !operator> (lhs,rhs);}
+	friend bool operator>=(const PokerCard& lhs, const PokerCard& rhs){return !operator< (lhs,rhs);}
 };
 
 } /* namespace pokerhands */
