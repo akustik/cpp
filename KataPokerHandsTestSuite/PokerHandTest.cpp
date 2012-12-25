@@ -22,8 +22,9 @@ TEST(PokerHandSpecs, ShouldReturnTheOwnerProvidedInTheConstructor){
 TEST(PokerHandSpecs, ShouldReturnTheCardsProvidedInTheConstructor){
 	PokerHand hand(string("owner"));
 	hand.addCard(string("2H"));
+	const vector<PokerCard> cards = hand.cards();
 
-	ASSERT_EQ(string("2H"), hand.cards()[0].card());
+	ASSERT_EQ(string("2H"), cards[0].card());
 }
 
 

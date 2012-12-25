@@ -21,7 +21,12 @@ PokerHandsRules::~PokerHandsRules() {
 }
 
 const string PokerHandsRules::chooseWinner(const string input) const throw(){
-	return string("Unknown situation");
+	vector<PokerHand> hands = _parser.parse(input);
+	if(hands.size() == 2){
+		return string("dont know");
+	} else {
+		return string("Unknown situation");
+	}
 }
 
 

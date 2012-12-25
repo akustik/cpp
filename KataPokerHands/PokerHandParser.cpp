@@ -25,7 +25,7 @@ PokerHandParser::~PokerHandParser() {
 
 }
 
-const vector<PokerHand> PokerHandParser::parse(const string input){
+const vector<PokerHand> PokerHandParser::parse(const string input) const{
 	  vector<PokerHand> hands;
 	  stringstream os(input);
 	  string temp;
@@ -38,7 +38,9 @@ const vector<PokerHand> PokerHandParser::parse(const string input){
 			  hands.push_back(hand);
 		  } else {
 			  //It is a card for the given hand
-			  hands[hands.size() - 1].addCard(temp);
+			  if(hands.size() > 0){
+				  hands[hands.size() - 1].addCard(temp);
+			  }
 		  }
 	  }
 

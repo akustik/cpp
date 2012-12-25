@@ -25,7 +25,7 @@ TEST(PokerHandParserSpecs, ShouldReturnTwoPokerHandsWithOwners){
 
 TEST(PokerHandParserSpecs, ShouldReturnTwoPokerHandsWithTheGivenCards){
 	PokerHandParser parser;
-	vector<PokerHand> hands = parser.parse(string("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH"));
+	const vector<PokerHand> hands = parser.parse(string("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH"));
 
 	ASSERT_EQ(2u, hands.size()) << "The number of hands is wrong";
 	ASSERT_EQ(string("2H"), hands[0].cards()[0].card()) << "The first card of the first hand is wrong";

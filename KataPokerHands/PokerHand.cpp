@@ -26,7 +26,7 @@ const string PokerHand::owner(){
 	return _owner;
 }
 
-const vector<PokerCard> PokerHand::cards(){
+const vector<PokerCard> PokerHand::cards() const{
 	return _cards;
 }
 

@@ -22,7 +22,7 @@ public:
 	PokerHandParser();
 	virtual ~PokerHandParser();
 
-	const vector<PokerHand> parse(const string);
+	const vector<PokerHand> parse(const string) const;
 };
 
 } /* namespace pokerhands */

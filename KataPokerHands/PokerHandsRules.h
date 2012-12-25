@@ -9,12 +9,16 @@
 #define POKERHANDSRULES_H_
 
 #include <string>
+#include "PokerHandParser.h"
 
 using namespace std;
 
 namespace pokerhands {
 
 class PokerHandsRules {
+private:
+	PokerHandParser _parser;
+
 public:
 	PokerHandsRules();
 	virtual ~PokerHandsRules();
