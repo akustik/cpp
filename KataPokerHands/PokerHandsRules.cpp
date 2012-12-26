@@ -37,7 +37,7 @@ const string PokerHandsRules::chooseWinner(const string input) const throw(){
 		sort(hand2Cards.begin(), hand2Cards.end());
 
 		//check who has the higher value, for tie, continue
-		for(unsigned int i=hand1Cards.size() - 1; i>=0; i--){
+		for(int i=hand1Cards.size() - 1; i>=0; i--){
 			if(hand1Cards[i] < hand2Cards[i]){
 				stringstream ss;
 				ss << hands[1].owner() << " wins. - with high card: " << hand2Cards[i].name();
