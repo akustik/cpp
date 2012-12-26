@@ -16,3 +16,10 @@ http://code.google.com/p/googletest/wiki/V1_6_Primer
 3) Other tools
 
 http://valgrind.org/ (Detects memory leaks)
+
+4) Continuous integration
+
+https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu (Jenkins installation)
+
+http://stackoverflow.com/questions/7163741/how-to-setup-c-continous-build-on-hudson-jenkins (Setup a cpp project)
+https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=65143593 (Setup a cpp project)
