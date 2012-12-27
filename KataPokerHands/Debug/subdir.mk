@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../DelegatedPokerDecisionMaker.cpp \
+../FlashPokerDecisionMaker.cpp \
 ../HighCardPokerDecisionMaker.cpp \
 ../PokerCard.cpp \
 ../PokerDecisionMaker.cpp \
@@ -14,6 +15,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./DelegatedPokerDecisionMaker.o \
+./FlashPokerDecisionMaker.o \
 ./HighCardPokerDecisionMaker.o \
 ./PokerCard.o \
 ./PokerDecisionMaker.o \
@@ -23,6 +25,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./DelegatedPokerDecisionMaker.d \
+./FlashPokerDecisionMaker.d \
 ./HighCardPokerDecisionMaker.d \
 ./PokerCard.d \
 ./PokerDecisionMaker.d \

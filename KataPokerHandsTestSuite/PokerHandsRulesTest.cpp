@@ -24,6 +24,12 @@ TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithHighCardAce){
 	ASSERT_EQ(string("White wins. - with high card: Ace"), decision) << "The decision is not correct";
 }
 
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHighCardNine){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C KH"));
+	ASSERT_EQ(string("Black wins. - with high card: 9"), decision) << "The decision is not correct";
+}
+
 TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHighCardJack){
 	PokerHandsRules rules;
 	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C JD  White: 2C 3H 4S 8C TH"));
@@ -41,6 +47,14 @@ TEST(PokerHandsRulesSpecs, ShouldBeTieWithTheSameCards){
 	string decision = rules.chooseWinner(string("Black: 2H 4D 5S 9C JD  White: 2C 4H 5S 9C JD"));
 	ASSERT_EQ(string("Tie."), decision) << "The decision is not correct";
 }
+
+TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithFlash){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 4S 4C 2D 4H  White: 2S 8S AS QS 3S"));
+	ASSERT_EQ(string("White wins. - with flash"), decision) << "The decision is not correct";
+}
+
+
 
 
 

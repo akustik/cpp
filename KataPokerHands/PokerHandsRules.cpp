@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <sstream>
 #include "HighCardPokerDecisionMaker.h"
+#include "FlashPokerDecisionMaker.h"
 
 using namespace std;
 
@@ -26,7 +27,8 @@ PokerHandsRules::~PokerHandsRules() {
 const string PokerHandsRules::chooseWinner(const string input) const throw(){
 	vector<PokerHand> hands = _parser.parse(input);
 	if(hands.size() == 2){
-		HighCardPokerDecisionMaker dm;
+		PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
+		FlashPokerDecisionMaker dm(highCardDM);
 		return dm.decide(hands[0], hands[1]);
 	} else {
 		return string("Unknown situation");
