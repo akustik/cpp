@@ -16,8 +16,6 @@ using namespace std;
 namespace pokerhands {
 
 class FlashPokerDecisionMaker: public pokerhands::DelegatedPokerDecisionMaker {
-private:
-	bool hasFlash(PokerHand&);
 public:
 	FlashPokerDecisionMaker(PokerDecisionMaker*);
 	virtual ~FlashPokerDecisionMaker();

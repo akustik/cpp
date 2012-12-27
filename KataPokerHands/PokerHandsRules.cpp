@@ -11,6 +11,7 @@
 #include <sstream>
 #include "HighCardPokerDecisionMaker.h"
 #include "FlashPokerDecisionMaker.h"
+#include "StraightFlashPokerDecisionMaker.h"
 
 using namespace std;
 
@@ -26,13 +27,16 @@ PokerHandsRules::~PokerHandsRules() {
 
 const string PokerHandsRules::chooseWinner(const string input) const throw(){
 	vector<PokerHand> hands = _parser.parse(input);
+	string response("Unknown situation");
 	if(hands.size() == 2){
 		PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
-		FlashPokerDecisionMaker dm(highCardDM);
-		return dm.decide(hands[0], hands[1]);
-	} else {
-		return string("Unknown situation");
+		PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(highCardDM);
+		PokerDecisionMaker* straightFlashDM = new StraightFlashPokerDecisionMaker(flashDM);
+		response = straightFlashDM->decide(hands[0], hands[1]);
+		delete straightFlashDM; //delete is chained
 	}
+
+	return response;
 }
 
 

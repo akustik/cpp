@@ -54,6 +54,12 @@ TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithFlash){
 	ASSERT_EQ(string("White wins. - with flash"), decision) << "The decision is not correct";
 }
 
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithStraightFlashAgainstFlash){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 3H 5H 4H 6H  White: 2S 8S AS QS 3S"));
+	ASSERT_EQ(string("Black wins. - with straight flash"), decision) << "The decision is not correct";
+}
+
 
 
 

@@ -24,6 +24,21 @@ public:
 	 * Takes a decision for the winner of the given two hands.
 	 */
 	virtual string decide(PokerHand&, PokerHand&) = 0;
+
+	/**
+	 * Decides whether a hand contains a flash
+	 */
+	bool hasFlash(PokerHand&);
+
+	/**
+	 * Decides whether a hand contains a straight
+	 */
+	bool hasStraight(PokerHand&);
+
+	/**
+	 * Logs a set of cards
+	 */
+	string stringify(vector<PokerCard>&);
 };
 
 } /* namespace pokerhands */
