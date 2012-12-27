@@ -33,7 +33,7 @@ bool PokerDecisionMaker::hasFlash(PokerHand& h){
 		}
 	}
 
-	cout << "Checking flash with " << stringify(cards) << ", " << hasFlash << endl;
+	cout << "[LOG] Checking flash with " << stringify(cards) << ", " << hasFlash << endl;
 	return hasFlash;
 }
 
@@ -60,7 +60,7 @@ bool PokerDecisionMaker::hasStraight(PokerHand& h){
 		}
 	}
 
-	cout << "Checking straight with " << stringify(cards) << ", " << hasStraight << endl;
+	cout << "[LOG] Checking straight with " << stringify(cards) << ", " << hasStraight << endl;
 	return hasStraight;
 
 }
