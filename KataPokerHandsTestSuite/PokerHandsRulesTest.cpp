@@ -44,7 +44,7 @@ TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithHighCardFourAfterThreeCards){
 
 TEST(PokerHandsRulesSpecs, ShouldBeTieWithTheSameCards){
 	PokerHandsRules rules;
-	string decision = rules.chooseWinner(string("Black: 2H 4D 5S 9C JD  White: 2C 4H 5S 9C JD"));
+	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH"));
 	ASSERT_EQ(string("Tie."), decision) << "The decision is not correct";
 }
 
