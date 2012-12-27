@@ -15,7 +15,7 @@ using namespace pokerhands;
 TEST(PokerHandsRulesSpecs, ShouldReturnAnErrorMessageWhenAnUnknownInputIsSubmit){
 	PokerHandsRules rules;
 	string decision = rules.chooseWinner(string("unknown situation"));
-	ASSERT_EQ(string("Unknown situation"), decision) << "The error message does not match";
+	ASSERT_EQ(string("Unknown lala"), decision) << "The error message does not match";
 }
 
 TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithHighCardAce){
