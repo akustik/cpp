@@ -43,7 +43,7 @@ all: KataPokerHandsTestSuite
 KataPokerHandsTestSuite: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"$(WORKSPACE)/KataPokerHands/Debug" -o "KataPokerHandsTestSuite" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"$(WORKSPACE)/KataPokerHands/JDebug" -o "KataPokerHandsTestSuite" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
