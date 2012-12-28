@@ -114,6 +114,24 @@ TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHigherStraight){
 	ASSERT_EQ(string("Black wins. - with straight"), decision) << "The decision is not correct";
 }
 
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithTwoPairsWithHigherFirst){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 3H 3S 4C 4D 7H  White: 2S 2H 4S 3S 3S"));
+	ASSERT_EQ(string("Black wins. - with two pairs"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithTwoPairsWithHigherSecond){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 3H 3S 4C 4D 7H  White: 2S 2H 4S 4S 7S"));
+	ASSERT_EQ(string("Black wins. - with two pairs"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithTwoPairsWithHigherCard){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 3H 3S 4C 4D TH  White: 3S 3H 4S 4S 7S"));
+	ASSERT_EQ(string("Black wins. - with high card: 10"), decision) << "The decision is not correct";
+}
+
 
 
 
