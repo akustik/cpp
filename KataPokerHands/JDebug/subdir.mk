@@ -14,7 +14,8 @@ CPP_SRCS += \
 ../PokerHand.cpp \
 ../PokerHandParser.cpp \
 ../PokerHandsRules.cpp \
-../StraightFlashPokerDecisionMaker.cpp 
+../StraightFlashPokerDecisionMaker.cpp \
+../ThreeOfAKindPokerDecisionMaker.cpp 
 
 OBJS += \
 ./DelegatedPokerDecisionMaker.o \
@@ -27,7 +28,8 @@ OBJS += \
 ./PokerHand.o \
 ./PokerHandParser.o \
 ./PokerHandsRules.o \
-./StraightFlashPokerDecisionMaker.o 
+./StraightFlashPokerDecisionMaker.o \
+./ThreeOfAKindPokerDecisionMaker.o 
 
 CPP_DEPS += \
 ./DelegatedPokerDecisionMaker.d \
@@ -40,7 +42,8 @@ CPP_DEPS += \
 ./PokerHand.d \
 ./PokerHandParser.d \
 ./PokerHandsRules.d \
-./StraightFlashPokerDecisionMaker.d 
+./StraightFlashPokerDecisionMaker.d \
+./ThreeOfAKindPokerDecisionMaker.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

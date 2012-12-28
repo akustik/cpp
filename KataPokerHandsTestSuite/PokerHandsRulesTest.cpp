@@ -90,6 +90,18 @@ TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHigherFullHouse){
 	ASSERT_EQ(string("Black wins. - with full house"), decision) << "The decision is not correct";
 }
 
+TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithThreeOfAKind){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 5H 2S 8C AD 5H  White: 5S 5H 5S 3S 4S"));
+	ASSERT_EQ(string("White wins. - with three of a kind"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHigherThreeOfAKind){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 6H 6S 6C 2D 3H  White: 5S 5H 5S 6S 4S"));
+	ASSERT_EQ(string("Black wins. - with three of a kind"), decision) << "The decision is not correct";
+}
+
 
 
 

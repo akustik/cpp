@@ -14,6 +14,7 @@
 #include "StraightFlashPokerDecisionMaker.h"
 #include "FourOfKindPokerDecisionMaker.h"
 #include "FullHousePokerDecisionMaker.h"
+#include "ThreeOfAKindPokerDecisionMaker.h"
 
 using namespace std;
 
@@ -32,7 +33,8 @@ const string PokerHandsRules::chooseWinner(const string input) const throw(){
 	string response("Unknown situation");
 	if(hands.size() == 2){
 		PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
-		PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(highCardDM);
+		PokerDecisionMaker* threeDM = new ThreeOfAKindPokerDecisionMaker(highCardDM);
+		PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(threeDM);
 		PokerDecisionMaker* fullHouseDM = new FullHousePokerDecisionMaker(flashDM);
 		PokerDecisionMaker* fourDM = new FourOfKindPokerDecisionMaker(fullHouseDM);
 		PokerDecisionMaker* straightFlashDM = new StraightFlashPokerDecisionMaker(fourDM);
