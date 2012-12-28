@@ -60,7 +60,23 @@ TEST(PokerHandsRulesSpecs, ShouldWinBlackWithStraightFlashAgainstFlash){
 	ASSERT_EQ(string("Black wins. - with straight flash"), decision) << "The decision is not correct";
 }
 
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithFourOfAKindAgainstFlash){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 2S 2C 2D 6H  White: 2S 8S AS QS 3S"));
+	ASSERT_EQ(string("Black wins. - with four of a kind"), decision) << "The decision is not correct";
+}
 
+TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithFourOfAKindHigherThanBlackFourOfAKind){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 2S 2C 2D 6H  White: 3S 3S 3S QS 3S"));
+	ASSERT_EQ(string("White wins. - with four of a kind"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinWhiteAfterTieFourOfAKindWithHigherCard){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 5H 5S 5C 3D 5H  White: 5S 5S 5S 4S 5S"));
+	ASSERT_EQ(string("White wins. - with high card: 4"), decision) << "The decision is not correct";
+}
 
 
 

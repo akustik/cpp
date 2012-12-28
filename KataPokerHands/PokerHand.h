@@ -28,6 +28,7 @@ public:
 	const vector<PokerCard> cards() const;
 
 	void addCard(const string);
+	int removeCardsByValue(const int, const int);
 };
 
 } /* namespace pokerhands */

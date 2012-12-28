@@ -39,6 +39,15 @@ public:
 	 * Logs a set of cards
 	 */
 	string stringify(vector<PokerCard>&);
+
+	/**
+	 * Returns the value of the set of cards provided it reaches
+	 * the specified minimum of cards and changes the hand cards
+	 * with the remaining ones. Returns -1 otherwise.
+	 */
+
+	int hasCardsWithSameValue(PokerHand&, unsigned int);
+
 };
 
 } /* namespace pokerhands */

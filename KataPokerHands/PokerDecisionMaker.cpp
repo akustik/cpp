@@ -47,6 +47,29 @@ string PokerDecisionMaker::stringify(vector<PokerCard>& cards){
 	return sCards;
 }
 
+int PokerDecisionMaker::hasCardsWithSameValue(PokerHand& h, unsigned int minimum=2){
+	int value = -1;
+
+	vector<PokerCard> cards = h.cards();
+	sort(cards.begin(), cards.end());
+
+	unsigned int ocurrences = 1;
+	for(unsigned int i=1; i<cards.size(); i++){
+		if(cards[i-1].value() == cards[i].value()){
+			ocurrences++;
+			if(ocurrences >= minimum){
+				value = cards[i].value();
+				break;
+			}
+		} else {
+			ocurrences = 1;
+		}
+	}
+
+	cout << "[INFO]" << " Checking " << minimum << " repetitions with " << stringify(cards) << ", " << value << endl;
+	return value;
+}
+
 bool PokerDecisionMaker::hasStraight(PokerHand& h){
 	vector<PokerCard> cards = h.cards();
 	sort(cards.begin(), cards.end());

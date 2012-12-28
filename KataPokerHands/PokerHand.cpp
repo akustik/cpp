@@ -34,5 +34,20 @@ void PokerHand::addCard(const string card){
 	_cards.push_back(PokerCard(card));
 }
 
+int PokerHand::removeCardsByValue(const int value, const int amount=1){
+	int removed = 0;
+	vector<PokerCard> remaining;
+	vector<PokerCard>::iterator iterator;
+	for(iterator = _cards.begin(); iterator !=_cards.end(); iterator++){
+		if(iterator->value() == value && removed < amount){
+			removed++;
+		} else {
+			remaining.push_back(*iterator);
+		}
+	}
+	_cards = remaining;
+	return removed;
+}
+
 
 } /* namespace pokerhands */
