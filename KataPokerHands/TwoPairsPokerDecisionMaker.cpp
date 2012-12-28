@@ -22,11 +22,11 @@ string TwoPairsPokerDecisionMaker::decideOrDelegate(PokerHand& a, PokerHand& b){
 	string response("");
 	int aHasAFirstPair = hasCardsWithSameValue(a, 2);
 	int aHasASecondPair = hasCardsWithSameValue(a, 2, aHasAFirstPair);
-	bool aHasTwoPairs = aHasAFirstPair > -1 && aHasASecondPair;
+	bool aHasTwoPairs = aHasAFirstPair > -1 && aHasASecondPair > -1;
 
 	int bHasAFirstPair = hasCardsWithSameValue(b, 2);
 	int bHasASecondPair = hasCardsWithSameValue(b, 2, bHasAFirstPair);
-	bool bHasTwoPairs = bHasAFirstPair > -1 && bHasASecondPair;
+	bool bHasTwoPairs = bHasAFirstPair > -1 && bHasASecondPair > -1;
 
 	if(aHasTwoPairs && (!bHasTwoPairs || aHasAFirstPair > bHasAFirstPair
 			|| aHasASecondPair > bHasASecondPair)){

@@ -14,6 +14,7 @@ CPP_SRCS += \
 ../PokerHand.cpp \
 ../PokerHandParser.cpp \
 ../PokerHandsRules.cpp \
+../SimplePairPokerDecisionMaker.cpp \
 ../StraightFlashPokerDecisionMaker.cpp \
 ../StraightPokerDecisionMaker.cpp \
 ../ThreeOfAKindPokerDecisionMaker.cpp \
@@ -30,6 +31,7 @@ OBJS += \
 ./PokerHand.o \
 ./PokerHandParser.o \
 ./PokerHandsRules.o \
+./SimplePairPokerDecisionMaker.o \
 ./StraightFlashPokerDecisionMaker.o \
 ./StraightPokerDecisionMaker.o \
 ./ThreeOfAKindPokerDecisionMaker.o \
@@ -46,6 +48,7 @@ CPP_DEPS += \
 ./PokerHand.d \
 ./PokerHandParser.d \
 ./PokerHandsRules.d \
+./SimplePairPokerDecisionMaker.d \
 ./StraightFlashPokerDecisionMaker.d \
 ./StraightPokerDecisionMaker.d \
 ./ThreeOfAKindPokerDecisionMaker.d \
