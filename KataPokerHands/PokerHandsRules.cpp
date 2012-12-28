@@ -13,6 +13,7 @@
 #include "FlashPokerDecisionMaker.h"
 #include "StraightFlashPokerDecisionMaker.h"
 #include "FourOfKindPokerDecisionMaker.h"
+#include "FullHousePokerDecisionMaker.h"
 
 using namespace std;
 
@@ -32,7 +33,8 @@ const string PokerHandsRules::chooseWinner(const string input) const throw(){
 	if(hands.size() == 2){
 		PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
 		PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(highCardDM);
-		PokerDecisionMaker* fourDM = new FourOfKindPokerDecisionMaker(flashDM);
+		PokerDecisionMaker* fullHouseDM = new FullHousePokerDecisionMaker(flashDM);
+		PokerDecisionMaker* fourDM = new FourOfKindPokerDecisionMaker(fullHouseDM);
 		PokerDecisionMaker* straightFlashDM = new StraightFlashPokerDecisionMaker(fourDM);
 		response = straightFlashDM->decide(hands[0], hands[1]);
 		delete straightFlashDM; //delete is chained

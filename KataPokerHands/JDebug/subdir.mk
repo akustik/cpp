@@ -7,6 +7,7 @@ CPP_SRCS += \
 ../DelegatedPokerDecisionMaker.cpp \
 ../FlashPokerDecisionMaker.cpp \
 ../FourOfKindPokerDecisionMaker.cpp \
+../FullHousePokerDecisionMaker.cpp \
 ../HighCardPokerDecisionMaker.cpp \
 ../PokerCard.cpp \
 ../PokerDecisionMaker.cpp \
@@ -19,6 +20,7 @@ OBJS += \
 ./DelegatedPokerDecisionMaker.o \
 ./FlashPokerDecisionMaker.o \
 ./FourOfKindPokerDecisionMaker.o \
+./FullHousePokerDecisionMaker.o \
 ./HighCardPokerDecisionMaker.o \
 ./PokerCard.o \
 ./PokerDecisionMaker.o \
@@ -31,6 +33,7 @@ CPP_DEPS += \
 ./DelegatedPokerDecisionMaker.d \
 ./FlashPokerDecisionMaker.d \
 ./FourOfKindPokerDecisionMaker.d \
+./FullHousePokerDecisionMaker.d \
 ./HighCardPokerDecisionMaker.d \
 ./PokerCard.d \
 ./PokerDecisionMaker.d \

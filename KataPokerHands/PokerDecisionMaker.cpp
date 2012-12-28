@@ -47,7 +47,8 @@ string PokerDecisionMaker::stringify(vector<PokerCard>& cards){
 	return sCards;
 }
 
-int PokerDecisionMaker::hasCardsWithSameValue(PokerHand& h, unsigned int minimum=2){
+int PokerDecisionMaker::hasCardsWithSameValue(
+		PokerHand& h, unsigned int minimum, int ignore){
 	int value = -1;
 
 	vector<PokerCard> cards = h.cards();
@@ -55,7 +56,7 @@ int PokerDecisionMaker::hasCardsWithSameValue(PokerHand& h, unsigned int minimum
 
 	unsigned int ocurrences = 1;
 	for(unsigned int i=1; i<cards.size(); i++){
-		if(cards[i-1].value() == cards[i].value()){
+		if(cards[i-1].value() == cards[i].value() && cards[i].value() != ignore){
 			ocurrences++;
 			if(ocurrences >= minimum){
 				value = cards[i].value();

@@ -50,7 +50,7 @@ TEST(PokerHandsRulesSpecs, ShouldBeTieWithTheSameCards){
 
 TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithFlash){
 	PokerHandsRules rules;
-	string decision = rules.chooseWinner(string("Black: 2H 4S 4C 2D 4H  White: 2S 8S AS QS 3S"));
+	string decision = rules.chooseWinner(string("Black: 2H 4S KC TD JH  White: 2S 8S AS QS 3S"));
 	ASSERT_EQ(string("White wins. - with flash"), decision) << "The decision is not correct";
 }
 
@@ -76,6 +76,18 @@ TEST(PokerHandsRulesSpecs, ShouldWinWhiteAfterTieFourOfAKindWithHigherCard){
 	PokerHandsRules rules;
 	string decision = rules.chooseWinner(string("Black: 5H 5S 5C 3D 5H  White: 5S 5S 5S 4S 5S"));
 	ASSERT_EQ(string("White wins. - with high card: 4"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithFullHouse){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 5H 2S 8C AD 5H  White: 5S 5S 5S 4S 4S"));
+	ASSERT_EQ(string("White wins. - with full house"), decision) << "The decision is not correct";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldWinBlackWithHigherFullHouse){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 6H 6S 6C 3D 3H  White: 5S 5S 5S 4S 4S"));
+	ASSERT_EQ(string("Black wins. - with full house"), decision) << "The decision is not correct";
 }
 
 

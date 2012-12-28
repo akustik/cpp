@@ -44,9 +44,12 @@ public:
 	 * Returns the value of the set of cards provided it reaches
 	 * the specified minimum of cards and changes the hand cards
 	 * with the remaining ones. Returns -1 otherwise.
+	 *
+	 * When the last parameter is set, a card that matches the provided
+	 * value is ignored.
 	 */
 
-	int hasCardsWithSameValue(PokerHand&, unsigned int);
+	int hasCardsWithSameValue(PokerHand&, unsigned int=2, int=-1);
 
 };
 
