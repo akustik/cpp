@@ -8,6 +8,7 @@
 #include "PokerHand.h"
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,6 +48,31 @@ int PokerHand::removeCardsByValue(const int value, const int amount=1){
 	}
 	_cards = remaining;
 	return removed;
+}
+
+bool PokerHand::isHigher(PokerHand& b, string& name){
+	vector<PokerCard> aCards = cards();
+	vector<PokerCard> bCards = b.cards();
+	sort(aCards.begin(), aCards.end());
+	sort(bCards.begin(), bCards.end());
+
+	vector<PokerCard>::reverse_iterator aIterator;
+	vector<PokerCard>::reverse_iterator bIterator;
+
+	bool higher = false;
+	for(bIterator=bCards.rbegin(), aIterator=aCards.rbegin();
+			bIterator != bCards.rend() && aIterator != aCards.rend();
+			bIterator++, aIterator++){
+		if(*bIterator > *aIterator){
+			break;
+		} else if(*bIterator < *aIterator){
+			higher = true;
+			name.append(aIterator->name());
+			break;
+		}
+	}
+
+	return higher;
 }
 
 

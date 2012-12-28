@@ -73,15 +73,19 @@ int PokerDecisionMaker::hasCardsWithSameValue(
 
 bool PokerDecisionMaker::hasStraight(PokerHand& h){
 	vector<PokerCard> cards = h.cards();
-	sort(cards.begin(), cards.end());
 
 	bool hasStraight = true;
-
-	for(unsigned int i=1; i<cards.size(); i++){
-		if((cards[i-1].value() + 1) != cards[i].value()){
-			hasStraight = false;
-			break;
+	if(cards.size() == 5){
+		sort(cards.begin(), cards.end());
+		for(unsigned int i=1; i<cards.size(); i++){
+			if((cards[i-1].value() + 1) != cards[i].value()){
+				hasStraight = false;
+				break;
+			}
 		}
+
+	} else {
+		hasStraight = false;
 	}
 
 	cout << "[INFO]" << " Checking straight with " << stringify(cards) << ", " << hasStraight << endl;

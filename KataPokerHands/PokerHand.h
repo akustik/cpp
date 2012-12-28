@@ -29,6 +29,13 @@ public:
 
 	void addCard(const string);
 	int removeCardsByValue(const int, const int);
+
+	/**
+	 * Returns true if the hand is higher than the one of the parameter.
+	 * When higher, appends the deciding card name to the second parameter.
+	 */
+
+	bool isHigher(PokerHand&, string&);
 };
 
 } /* namespace pokerhands */

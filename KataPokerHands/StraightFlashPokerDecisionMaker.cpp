@@ -9,7 +9,6 @@
 #include "DelegatedPokerDecisionMaker.h"
 #include <sstream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 

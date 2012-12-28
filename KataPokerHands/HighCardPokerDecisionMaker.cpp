@@ -29,26 +29,16 @@ HighCardPokerDecisionMaker::~HighCardPokerDecisionMaker() {
 string HighCardPokerDecisionMaker::decide(PokerHand& a, PokerHand& b){
 	//default response is tie
 	string response = string("Tie.");
+	string name = string("");
 
-	//sort both hands
-	vector<PokerCard> aCards = a.cards();
-	vector<PokerCard> bCards = b.cards();
-	sort(aCards.begin(), aCards.end());
-	sort(bCards.begin(), bCards.end());
-
-	//check who has the higher value, for tie, continue
-	for(int i=aCards.size() - 1; i>=0; i--){
-		if(aCards[i] < bCards[i]){
-			stringstream ss;
-			ss << b.owner() << " wins. - with high card: " << bCards[i].name();
-			response = ss.str();
-			break;
-		} else if(aCards[i] > bCards[i]){
-			stringstream ss;
-			ss << a.owner() << " wins. - with high card: " << aCards[i].name();
-			response = ss.str();
-			break;
-		}
+	if(a.isHigher(b, name)){
+		stringstream ss;
+		ss << a.owner() << " wins. - with high card: " << name;
+		response = ss.str();
+	} else if(b.isHigher(a, name)){
+		stringstream ss;
+		ss << b.owner() << " wins. - with high card: " << name;
+		response = ss.str();
 	}
 
 	return response;
