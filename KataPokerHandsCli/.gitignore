@@ -1,0 +1,15 @@
+#Exclude build cpp files
+*.a
+*.o
+*.d
+*.so
+
+#Exclude temporal files
+*~
+
+#Exclude eclipse generated directories
+/Debug
+/Release
+
+#Exclude executable
+/JDebug/KataPokerHandsCli
