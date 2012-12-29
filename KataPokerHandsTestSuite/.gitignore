@@ -10,3 +10,8 @@
 #Exclude eclipse generated directories
 /Debug
 /Release
+
+#Exclude executables from jenkins debug dir
+/JDebug/KataPokerHandsTestSuite
+/JDebug/KataPokerHandsTestSuite.xml
+
