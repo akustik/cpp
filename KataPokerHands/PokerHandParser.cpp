@@ -7,8 +7,7 @@
 
 #include "PokerHandParser.h"
 #include <string>
-#include <vector>
-#include <iostream>
+#include <set>
 #include <sstream>
 #include "PokerHand.h"
 #include "PokerCardException.h"
@@ -30,6 +29,8 @@ const vector<PokerHand> PokerHandParser::parse(const string input) const throw(P
 	  vector<PokerHand> hands;
 	  stringstream os(input);
 	  string temp;
+	  pair<set<string>::iterator,bool> ret;
+	  set<string> duplicatesChecker;
 
 	  while (os >> temp){
 		  if(temp.find_first_of(':') != string::npos){
@@ -40,7 +41,14 @@ const vector<PokerHand> PokerHandParser::parse(const string input) const throw(P
 		  } else {
 			  //It is a card for the given hand
 			  if(hands.size() > 0){
-				  hands[hands.size() - 1].addCard(temp);
+				  ret = duplicatesChecker.insert(temp);
+				  if(ret.second){
+					  hands[hands.size() - 1].addCard(temp);
+				  } else {
+					  string message("The card already exists: ");
+					  message.append(temp);
+					  throw PokerCardException(message);
+				  }
 			  }
 		  }
 	  }
