@@ -18,6 +18,7 @@
 #include "StraightPokerDecisionMaker.h"
 #include "TwoPairsPokerDecisionMaker.h"
 #include "SimplePairPokerDecisionMaker.h"
+#include "PokerCardException.h"
 
 using namespace std;
 
@@ -32,20 +33,24 @@ PokerHandsRules::~PokerHandsRules() {
 }
 
 const string PokerHandsRules::chooseWinner(const string input) const throw(){
-	vector<PokerHand> hands = _parser.parse(input);
 	string response("Unknown situation");
-	if(hands.size() == 2){
-		PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
-		PokerDecisionMaker* pairDM = new SimplePairPokerDecisionMaker(highCardDM);
-		PokerDecisionMaker* twoPairsDM = new TwoPairsPokerDecisionMaker(pairDM);
-		PokerDecisionMaker* threeDM = new ThreeOfAKindPokerDecisionMaker(twoPairsDM);
-		PokerDecisionMaker* straightDM = new StraightPokerDecisionMaker(threeDM);
-		PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(straightDM);
-		PokerDecisionMaker* fullHouseDM = new FullHousePokerDecisionMaker(flashDM);
-		PokerDecisionMaker* fourDM = new FourOfKindPokerDecisionMaker(fullHouseDM);
-		PokerDecisionMaker* straightFlashDM = new StraightFlashPokerDecisionMaker(fourDM);
-		response = straightFlashDM->decide(hands[0], hands[1]);
-		delete straightFlashDM; //delete is chained
+	try {
+		vector<PokerHand> hands = _parser.parse(input);
+		if(hands.size() == 2){
+			PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
+			PokerDecisionMaker* pairDM = new SimplePairPokerDecisionMaker(highCardDM);
+			PokerDecisionMaker* twoPairsDM = new TwoPairsPokerDecisionMaker(pairDM);
+			PokerDecisionMaker* threeDM = new ThreeOfAKindPokerDecisionMaker(twoPairsDM);
+			PokerDecisionMaker* straightDM = new StraightPokerDecisionMaker(threeDM);
+			PokerDecisionMaker* flashDM = new FlashPokerDecisionMaker(straightDM);
+			PokerDecisionMaker* fullHouseDM = new FullHousePokerDecisionMaker(flashDM);
+			PokerDecisionMaker* fourDM = new FourOfKindPokerDecisionMaker(fullHouseDM);
+			PokerDecisionMaker* straightFlashDM = new StraightFlashPokerDecisionMaker(fourDM);
+			response = straightFlashDM->decide(hands[0], hands[1]);
+			delete straightFlashDM; //delete is chained
+		}
+	}catch(PokerCardException& e){
+		response = string(e.what());
 	}
 
 	return response;

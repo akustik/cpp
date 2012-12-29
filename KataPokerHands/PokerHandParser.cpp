@@ -11,6 +11,7 @@
 #include <iostream>
 #include <sstream>
 #include "PokerHand.h"
+#include "PokerCardException.h"
 
 using namespace std;
 using namespace pokerhands;
@@ -25,7 +26,7 @@ PokerHandParser::~PokerHandParser() {
 
 }
 
-const vector<PokerHand> PokerHandParser::parse(const string input) const{
+const vector<PokerHand> PokerHandParser::parse(const string input) const throw(PokerCardException){
 	  vector<PokerHand> hands;
 	  stringstream os(input);
 	  string temp;

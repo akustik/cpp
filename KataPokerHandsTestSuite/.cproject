@@ -29,6 +29,7 @@
 									<listOptionValue builtIn="false" value="/usr/include/gtest"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KataPokerHands}&quot;"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.other.other.1759611099" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -std=c++0x" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1658966073" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2108834451" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">

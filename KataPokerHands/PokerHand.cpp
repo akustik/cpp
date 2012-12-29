@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include "PokerCardException.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ const vector<PokerCard> PokerHand::cards() const{
 	return _cards;
 }
 
-void PokerHand::addCard(const string card){
+void PokerHand::addCard(const string card) throw (PokerCardException){
 	_cards.push_back(PokerCard(card));
 }
 

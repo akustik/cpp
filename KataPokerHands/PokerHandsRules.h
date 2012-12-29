@@ -10,6 +10,7 @@
 
 #include <string>
 #include "PokerHandParser.h"
+#include "PokerCardException.h"
 
 using namespace std;
 

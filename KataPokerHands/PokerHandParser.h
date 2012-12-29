@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include "PokerHand.h"
+#include "PokerCardException.h"
 
 using namespace std;
 using namespace pokerhands;
@@ -22,7 +23,7 @@ public:
 	PokerHandParser();
 	virtual ~PokerHandParser();
 
-	const vector<PokerHand> parse(const string) const;
+	const vector<PokerHand> parse(const string) const throw (PokerCardException);
 };
 
 } /* namespace pokerhands */

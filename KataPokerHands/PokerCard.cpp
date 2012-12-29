@@ -9,11 +9,22 @@
 #include <string>
 #include <ostream>
 #include <sstream>
+#include <regex>
+#include <exception>
+#include "PokerCardException.h"
+
+#define CARD_PATTERN ".."
+
+using namespace std;
 
 namespace pokerhands {
 
-PokerCard::PokerCard(const string card) {
-	_card = card;
+PokerCard::PokerCard(const string card) throw (PokerCardException){
+	if(!regex_match(card, regex(CARD_PATTERN, regex_constants::basic))){
+		throw PokerCardException(card);
+	} else {
+		_card = card;
+	}
 }
 
 PokerCard::~PokerCard() {

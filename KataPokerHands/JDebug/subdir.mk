@@ -10,6 +10,7 @@ CPP_SRCS += \
 ../FullHousePokerDecisionMaker.cpp \
 ../HighCardPokerDecisionMaker.cpp \
 ../PokerCard.cpp \
+../PokerCardException.cpp \
 ../PokerDecisionMaker.cpp \
 ../PokerHand.cpp \
 ../PokerHandParser.cpp \
@@ -27,6 +28,7 @@ OBJS += \
 ./FullHousePokerDecisionMaker.o \
 ./HighCardPokerDecisionMaker.o \
 ./PokerCard.o \
+./PokerCardException.o \
 ./PokerDecisionMaker.o \
 ./PokerHand.o \
 ./PokerHandParser.o \
@@ -44,6 +46,7 @@ CPP_DEPS += \
 ./FullHousePokerDecisionMaker.d \
 ./HighCardPokerDecisionMaker.d \
 ./PokerCard.d \
+./PokerCardException.d \
 ./PokerDecisionMaker.d \
 ./PokerHand.d \
 ./PokerHandParser.d \
@@ -59,7 +62,7 @@ CPP_DEPS += \
 %.o: ../%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/include/c++/4.6 -I/usr/include/c++/4.6/i686-linux-gnu -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/usr/include/c++/4.6 -I/usr/include/c++/4.6/i686-linux-gnu -O0 -g3 -Wall -c -fmessage-length=0 -std=c++0x -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

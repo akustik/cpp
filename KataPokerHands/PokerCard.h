@@ -9,6 +9,7 @@
 #define POKERCARD_H_
 
 #include <string>
+#include "PokerCardException.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ class PokerCard {
 private:
 	string _card;
 public:
-	PokerCard(const string);
+	PokerCard(const string) throw (PokerCardException);
 	virtual ~PokerCard();
 
 	const string card() const;

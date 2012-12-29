@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include "PokerCard.h"
+#include "PokerCardException.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ public:
 	const string owner() const;
 	const vector<PokerCard> cards() const;
 
-	void addCard(const string);
+	void addCard(const string) throw (PokerCardException);
 	int removeCardsByValue(const int, const int);
 
 	/**
