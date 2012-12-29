@@ -2,7 +2,6 @@
 *.a
 *.o
 *.d
-*.so
 
 #Exclude temporal files
 *~
