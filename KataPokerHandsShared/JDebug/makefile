@@ -43,7 +43,7 @@ all: libKataPokerHandsShared.so
 libKataPokerHandsShared.so: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"$(WORKSPACE)/KataPokerHands/Debug" -shared -o "libKataPokerHandsShared-$(VERSION).so" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"$(WORKSPACE)/KataPokerHands/JDebug" -shared -o "libKataPokerHandsShared-$(VERSION).so" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
