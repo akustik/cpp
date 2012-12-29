@@ -24,6 +24,7 @@ public:
 
 	const string card() const;
 	const string name() const;
+	const string type() const;
 	const char color() const;
 	const int value() const;
 

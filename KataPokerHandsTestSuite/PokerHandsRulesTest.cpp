@@ -22,7 +22,19 @@ TEST(PokerHandsRulesSpecs, ShouldReturnAnErrorMessageWhenAnUnknownInputIsSubmit)
 TEST(PokerHandsRulesSpecs, ShouldRaiseAnExceptionWhenTheCardCodeIsWrong){
 	PokerHandsRules rules;
 	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C ZDZ  White: 2C 3H 4S 8C AH"));
-	ASSERT_EQ(string("ZDZ"), decision) << "The error message does not match";
+	ASSERT_EQ(string("The card format is not valid: ZDZ"), decision) << "The error message does not match";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldRaiseAnExceptionWhenTheCardColorIsWrong){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C AZ  White: 2C 3H 4S 8C AH"));
+	ASSERT_EQ(string("The card color is not valid: AZ"), decision) << "The error message does not match";
+}
+
+TEST(PokerHandsRulesSpecs, ShouldRaiseAnExceptionWhenTheCardValueIsWrong){
+	PokerHandsRules rules;
+	string decision = rules.chooseWinner(string("Black: 2H 3D 5S 9C ZC  White: 2C 3H 4S 8C AH"));
+	ASSERT_EQ(string("The card value is not valid: ZC"), decision) << "The error message does not match";
 }
 
 TEST(PokerHandsRulesSpecs, ShouldWinWhiteWithHighCardAce){
