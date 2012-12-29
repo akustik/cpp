@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../Version.cpp 
+../PokerHandsRulesWrapper.cpp 
 
 OBJS += \
-./Version.o 
+./PokerHandsRulesWrapper.o 
 
 CPP_DEPS += \
-./Version.d 
+./PokerHandsRulesWrapper.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
