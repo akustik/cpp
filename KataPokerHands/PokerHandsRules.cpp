@@ -6,6 +6,7 @@
  */
 
 #include "PokerHandsRules.h"
+#include "PokerHandParser.h"
 #include <string>
 #include <algorithm>
 #include <sstream>
@@ -35,7 +36,8 @@ PokerHandsRules::~PokerHandsRules() {
 const string PokerHandsRules::chooseWinner(const string input) const throw(){
 	string response("Unknown situation");
 	try {
-		vector<PokerHand> hands = _parser.parse(input);
+		PokerHandParser parser;
+		vector<PokerHand> hands = parser.parse(input);
 		if(hands.size() == 2){
 			PokerDecisionMaker* highCardDM = new HighCardPokerDecisionMaker();
 			PokerDecisionMaker* pairDM = new SimplePairPokerDecisionMaker(highCardDM);
