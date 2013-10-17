@@ -1,25 +1,23 @@
-cppkatas
+cpp
 ========
 
-1) About the language
+## Resources
 
-http://www.cplusplus.com/doc/tutorial/
+* [Tutorial](http://www.cplusplus.com/doc/tutorial/)
+* [Memory management](http://linuxdevcenter.com/pub/a/linux/2003/05/08/cpp_mm-1.html)
 
-http://linuxdevcenter.com/pub/a/linux/2003/05/08/cpp_mm-1.html (Memory management)
+## Frameworks
 
-2) About unit testing
+* [Unit testing for eclipse](http://feelings-erased.blogspot.com.es/2012/07/eclipse-juno-has-landed-with-unit.html)
+* [Google tests](http://code.google.com/p/googletest/wiki/V1_6_Primer)
 
-http://feelings-erased.blogspot.com.es/2012/07/eclipse-juno-has-landed-with-unit.html
+## Memory management
 
-http://code.google.com/p/googletest/wiki/V1_6_Primer
+* [Memory leaks detection](http://valgrind.org/)
 
-3) Other tools
+## CI
 
-http://valgrind.org/ (Detects memory leaks)
-
-4) Continuous integration
-
-https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu (Jenkins installation)
-
-http://stackoverflow.com/questions/7163741/how-to-setup-c-continous-build-on-hudson-jenkins (Setup a cpp project)
-https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=65143593 (Setup a cpp project)
+* Jenkins
+* [How to build c CI](http://stackoverflow.com/questions/7163741/how-to-setup-c-continous-build-on-hudson-jenkins)
+* [Setup a jenkins cpp project](https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=65143593)
+* [Maven plugin for native binaries](http://duns.github.io/maven-nar-plugin/)
