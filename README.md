@@ -14,6 +14,7 @@ cpp
 ## Memory management
 
 * [Memory leaks detection](http://valgrind.org/)
+* [Undefined behavior](http://blog.regehr.org/archives/213)
 
 ## CI
 
